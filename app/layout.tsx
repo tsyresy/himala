@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description: "A living legacy, woven with you. A vetting process worthy of a luxury asset.",
 };
 
+import TopNavigation from "@/components/TopNavigation";
+import Footer from "@/components/Footer";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -24,7 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} bg-black text-white antialiased`}>
-      <body>{children}</body>
+      <body className="flex flex-col min-h-screen">
+        <TopNavigation />
+        <div className="flex-grow pt-[98px]">
+          {children}
+        </div>
+        <Footer />
+      </body>
     </html>
   );
 }

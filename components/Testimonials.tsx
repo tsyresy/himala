@@ -43,15 +43,15 @@ const imagePositions = [
 // --- ANIMATION LOGIC ---
 const imageVariants = {
   initial: { opacity: 0, scale: 0.5 },
-  animate: { 
-    opacity: 1, 
-    scale: 1, 
-    transition: { 
-      type: 'spring' as const, 
-      stiffness: 260, 
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring' as const,
+      stiffness: 260,
       damping: 20,
       delay: Math.random() * 0.5,
-    } 
+    }
   },
 };
 
@@ -88,8 +88,8 @@ export const AnimatedTestimonialGrid = ({
         <motion.div
           key={index}
           className={cn('absolute rounded-lg shadow-xl overflow-hidden', imagePositions[index].className)}
-          style={{ 
-            top: imagePositions[index].top, 
+          style={{
+            top: imagePositions[index].top,
             left: imagePositions[index].left,
             right: imagePositions[index].right,
             bottom: imagePositions[index].bottom,
@@ -100,7 +100,7 @@ export const AnimatedTestimonialGrid = ({
           whileHover={{ scale: 1.1, zIndex: 20 }}
           custom={index}
         >
-           <motion.img
+          <motion.img
             src={testimonial.imgSrc}
             alt={testimonial.alt}
             className="w-full h-full object-cover"
@@ -153,8 +153,8 @@ export default function Testimonials() {
       <AnimatedTestimonialGrid
         testimonials={testimonialsData}
         badgeText="Our Legacy"
-        title="Trusted by Collectors Worldwide"
-        description="Experience the miracle of light. Discover why discerning clients choose Maison Himala for their most precious wearable investments."
+        title="Trusted by 1000+ customers worldwide"
+        description="Discover why discerning clients choose Maison Himala for their most precious wearable investments."
         ctaText="Read Client Stories"
         ctaHref="#stories"
       />

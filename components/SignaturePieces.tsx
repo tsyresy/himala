@@ -58,12 +58,22 @@ export default function SignaturePieces() {
                 
                 {/* Buttons overlay/highlighted elements */}
                 <div className="flex gap-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <button className="px-6 py-2 bg-gold-gradient text-black text-sm font-semibold rounded-full hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                  <a 
+                    href="https://maisonhimala.etsy.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 bg-gold-gradient text-black text-sm font-semibold rounded-full hover:opacity-90 transition-opacity shadow-[0_0_15px_rgba(212,175,55,0.4)]"
+                  >
                     View the Item
-                  </button>
-                  <button className="px-6 py-2 border border-[#BF953F] text-gold-gradient text-sm font-semibold rounded-full hover:bg-white/5 transition-colors">
+                  </a>
+                  <a 
+                    href="https://maisonhimala.etsy.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 border border-[#BF953F] text-gold-gradient text-sm font-semibold rounded-full hover:bg-white/5 transition-colors"
+                  >
                     Visit the Store
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

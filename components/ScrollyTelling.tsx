@@ -137,16 +137,16 @@ export default function ScrollyTelling() {
           className="absolute inset-0 flex flex-col justify-center pointer-events-none p-8 md:p-24"
         >
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white/90 mb-6 drop-shadow-lg">
-              Born from a Miracle, Distilled into Light
+            <h2 className="text-4xl md:text-5xl font-luxury text-gold-gradient mb-8 drop-shadow-lg">
+              The Pinnacle of Curation
             </h2>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed font-light drop-shadow-md">
-              Himala translates to Miracle. It was the name bestowed to celebrate the
-              extraordinary strength of a daughter from her very first breath. As a small
-              child, she was mesmerized by the way light dances through a fine gemstone—that
-              spark of wonder became the very heartbeat of Maison Himala. Every jewel we
-              create carries that same radiance: a miracle of fire and brilliance, designed
-              to capture light the way a child’s eyes first captured a dream.
+            <p className="text-base md:text-xl text-white/70 leading-relaxed font-light drop-shadow-md">
+              At Maison Himala, we are not mere collectors; we are master curators. 
+              Every stone in our collection is hand-selected from the world&apos;s most boutique suppliers, 
+              chosen for its &quot;Miracle of Light.&quot; We treat every piece as a high-investment luxury asset, 
+              personally vetting the refractive index and structural integrity of every setting. 
+              When you choose a Himala piece, you acquire technical perfection distilled 
+              through a father&apos;s expertise and a daughter&apos;s dream.
             </p>
           </div>
         </motion.div>
@@ -157,18 +157,16 @@ export default function ScrollyTelling() {
           className="absolute inset-0 flex flex-col justify-center items-end pointer-events-none p-8 md:p-24 text-right"
         >
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white/90 mb-6 drop-shadow-lg">
-              A Vetting Process Worthy of a Luxury Asset
+            <h2 className="text-4xl md:text-5xl font-luxury text-gold-gradient mb-8 drop-shadow-lg">
+              Commemorating Your Union
             </h2>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed font-light drop-shadow-md">
-              We treat every piece in our collection as a wearable investment. Our curation is
-              built on uncompromising technical precision: we personally verify the refractive
-              index of each gemstone and inspect the purity and structural integrity of every
-              precious metal setting. Sourced by hand from the world’s most reputable
-              suppliers, every diamond or moissanite, every solid gold or silver element,
-              must meet our exacting standard of fire, clarity, and composition. Nothing is
-              left to chance; what reaches you is perfection, certified and without
-              compromise.
+            <p className="text-base md:text-xl text-white/70 leading-relaxed font-light drop-shadow-md">
+              A wedding is the ultimate miracle—a union of two souls bound by light. 
+              There is no moment more worthy of technical perfection. Whether you seek the 
+              extreme fire of our VVS1+ Moissanite or the timeless prestige of an 
+              IGI-certified Diamond, our jewelry is designed to capture the radiance 
+              of your commitment. Trust in a vetting process that leaves nothing to chance, 
+              so your only focus is the brilliance of the promise you make.
             </p>
           </div>
         </motion.div>
@@ -178,19 +176,17 @@ export default function ScrollyTelling() {
           style={{ opacity: text4Opacity, y: text4Y }}
           className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none p-8 md:p-24 text-center bg-gradient-to-t from-black via-black/50 to-transparent"
         >
-          <div className="max-w-3xl mt-auto pb-24">
-            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white/90 mb-8 drop-shadow-lg">
-              A Living Legacy, Woven with You
+          <div className="max-w-4xl mt-auto pb-24">
+            <h2 className="text-4xl md:text-6xl font-luxury text-gold-gradient mb-10 drop-shadow-lg">
+              A Legacy Worthy of Your Love
             </h2>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed font-light drop-shadow-md">
-              Maison Himala is not a distant inheritance to be handed down someday—it is a
-              journey we are living together right now. At almost six years old, our
-              daughter is already at our side, learning the brilliance of a master cut and
-              the spirit of true entrepreneurship. When you choose a piece from this
-              collection, you acquire far more than a jewel. You support a father’s deep
-              expertise and a daughter’s luminous dream, united by an unwavering commitment
-              to quality. You become an essential part of a story still unfolding—a legacy of
-              excellence in which you now hold a precious place.
+            <p className="text-base md:text-xl text-white/70 leading-relaxed font-light drop-shadow-md">
+              Your wedding jewelry is the first chapter of your family&apos;s living legacy. 
+              It is more than a jewel; it is a serialized guarantee of authenticity and quality 
+              that will be cherished for generations. From solid 18K gold to precision-cut stones, 
+              Maison Himala provides the technical standard required of a true luxury asset. 
+              Join us in this journey of excellence—a legacy of light that begins with your 
+              vows and shines forever.
             </p>
           </div>
         </motion.div>
