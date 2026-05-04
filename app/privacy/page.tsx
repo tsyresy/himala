@@ -42,13 +42,12 @@ export default function PrivacyPage() {
           <section className="space-y-6">
             <h2 className="text-3xl font-luxury text-white mb-8 uppercase tracking-widest border-b border-white/10 pb-4">1. Description of the Service</h2>
             <p>
-              The Service provides individuals with the opportunity to engage with businesses providing select
-              products, brands and services, enabling individual users to search, review and obtain discounts,
-              promotions and related benefits. The Service also provides businesses and entrepreneurs the
-              opportunity to connect with potential customers while promoting or advertising their goods and
-              services. In order to provide the Service to both individual and business users, Maison Himala may require
-              access to your personal data. This Privacy Policy describes how we access, collect and use
-              personal data regarding our users, including you.
+              Maison Himala provides a curated gateway to an exclusive selection of artisan pieces, luxury brands, 
+              and bespoke experiences. Our Service is designed for discerning individuals seeking artistic 
+              excellence, craftsmanship, and rare finds. We bridge the gap between visionary creators and those 
+              who appreciate the finer details of curation. To maintain the integrity and personalization of this 
+              prestige experience, Maison Himala requires access to certain personal data, handled with the 
+              utmost discretion as detailed in this policy.
             </p>
           </section>
 
@@ -134,13 +133,13 @@ export default function PrivacyPage() {
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-primary mt-1">●</span>
-                <span>sending promotional and marketing communications to you, if this is in accordance with your
-                marketing and communication preferences and you have not changed those preferences;</span>
+                <span>sharing exclusive curation insights, brand updates, and invitation-only news, in accordance 
+                with your preferred communication style;</span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-primary mt-1">●</span>
-                <span>delivering personalized advertising and targeted promotions tailored to your interests, location
-                and preferences;</span>
+                <span>presenting bespoke recommendations and exclusive opportunities tailored to your aesthetic 
+                interests, location, and curation history;</span>
               </li>
               <li className="flex gap-4 items-start">
                 <span className="text-primary mt-1">●</span>
@@ -327,18 +326,15 @@ export default function PrivacyPage() {
           </section>
 
           <section className="space-y-6">
-            <h2 className="text-3xl font-luxury text-white mb-8 uppercase tracking-widest border-b border-white/10 pb-4">14. Security</h2>
+            <h2 className="text-3xl font-luxury text-white mb-8 uppercase tracking-widest border-b border-white/10 pb-4">14. Security and Discretion</h2>
             <p>
-              We are committed to ensuring that your data is secure. To prevent unauthorized access,
-              disclosure, or breach, we have put in place suitable and commercially reasonable physical,
-              electronic, and administrative procedures to safeguard and secure the data we collect and
-              process, including appropriate protections for any sensitive personal data we access, process or
-              collect. Despite Maison Himala's efforts to adequately protect your personal data, no electronic
-              transmission can be guaranteed to be fully secure. As a result, our security measures may be
-              compromised by hackers, cybercriminals and other unauthorized third parties attempting to
-              improperly collect, access, steal and/or modify your information. You acknowledge and agree
-              that the transmission of personal data to and from the Service is at your own risk and that you
-              should only access the Service from a secure environment.
+              We are committed to the absolute security and discretion of your data. To prevent unauthorized access,
+              disclosure, or breach, we have put in place sophisticated physical, electronic, and administrative 
+              procedures designed to safeguard the data we collect. Our commitment to privacy reflects the 
+              confidentiality and prestige of the Maison Himala brand. While no digital environment can be 
+              perfectly infallible, we employ rigorous standards to protect your information against 
+              unauthorized access or modification. You acknowledge that the transmission of data is at your 
+              own risk and should be conducted within secure environments.
             </p>
           </section>
 
