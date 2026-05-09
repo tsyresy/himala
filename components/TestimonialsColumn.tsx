@@ -5,27 +5,27 @@ import { cn } from "@/lib/utils";
 
 export const testimonials = [
   {
-    name: "Eleanor Richards",
-    role: "Art Collector",
-    text: "The sheer brilliance of the Celestia Necklace is breathtaking. Every facet reflects Maison Himala's unwavering commitment to absolute perfection.",
+    name: "Maria Gonzalez",
+    role: "Finance Director",
+    text: "Honestly, my husband finally got something right. The necklace is stunning, and knowing it's an actual vetted investment makes the price tag hurt way less. Love it!",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
-    name: "Victoria Kensington",
-    role: "Philanthropist",
-    text: "I was moved by the story behind the brand. Knowing that this miracle of light is a legacy being actively built makes wearing their pieces profoundly special.",
+    name: "John 'JD' Martinez",
+    role: "Real Estate Developer",
+    text: "Paid a premium but wow, the wife is still speechless. The technical vetting sold me, but seeing it in person? Absolute fire. Best anniversary gift ever, hands down.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
-    name: "Alistair DuPont",
-    role: "Gemologist",
-    text: "As an expert in the field, I am rarely impressed. Maison Himala's refractive index verifications are stringent, and the results speak for themselves.",
+    name: "Sarah Jenkins",
+    role: "Tech Executive",
+    text: "I bought this for myself because why wait for a man? The refractive index on this piece is insane. I literally blind people in board meetings now. 10/10 recommend.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
-    name: "Sophia Laurent",
-    role: "Fashion Editor",
-    text: "Bold elegance redefined indeed. Their signature rings are absolute showstoppers on any red carpet. Simply unmatched in today's market.",
+    name: "Mateo Rivera",
+    role: "Architect",
+    text: "My wallet cried a little, but the moment she put the ring on, I knew I won. The craftsmanship is stupidly good. Maison Himala just doesn't miss.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
 ];

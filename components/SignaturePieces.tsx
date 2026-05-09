@@ -39,7 +39,7 @@ export default function SignaturePieces() {
               className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden flex flex-col border border-white/5 hover:border-primary/50 transition-all duration-500"
             >
               {/* Image Container */}
-              <div className="relative w-full aspect-[4/3] overflow-hidden">
+              <div className="relative w-full aspect-square overflow-hidden bg-black">
                 <Image
                   src={piece.image}
                   alt={piece.title}
