@@ -12,7 +12,7 @@ export const testimonials = [
   },
   {
     name: "John Martinez",
-    role: "🇲🇽 Mexique",
+    role: "🇲🇽 Mexico",
     text: "A seamless and highly professional experience from start to finish. The technical verification provides absolute peace of mind, and the piece itself is outstanding.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
