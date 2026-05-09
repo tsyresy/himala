@@ -15,7 +15,6 @@ const navLinks = [
 
 const secondaryLinks = [
   { href: "/certification", label: "Certification" },
-  { href: "/booking", label: "Booking" },
   { href: "/standard", label: "The Standard" },
   { href: "/privacy", label: "Privacy Policy" },
 ];
