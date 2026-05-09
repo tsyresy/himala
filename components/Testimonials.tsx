@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from 'react';
+import { useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -40,30 +41,12 @@ const imagePositions = [
   { bottom: '10%', right: '5%', className: 'block md:hidden w-16 h-16' },
 ];
 
-// --- ANIMATION LOGIC ---
-const imageVariants = {
-  initial: { opacity: 0, scale: 0.5 },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring' as const,
-      stiffness: 260,
-      damping: 20,
-      delay: Math.random() * 0.5,
-    }
-  },
-};
-
-const floatingAnimation = () => ({
-  y: [0, Math.random() * -15 - 5, 0],
-  transition: {
-    duration: Math.random() * 4 + 5,
-    repeat: Infinity,
-    repeatType: 'reverse' as const,
-    ease: 'easeInOut' as const,
-  },
-});
+// --- PRE-COMPUTED floating animation parameters (stable, no re-renders) ---
+const floatingParams = imagePositions.map((_, i) => ({
+  yOffset: -((i * 7 + 5) % 15) - 5, // deterministic pseudo-random offset
+  duration: ((i * 3 + 5) % 4) + 5,   // 5–9s cycle
+  delay: (i * 0.3) % 2,               // staggered entry delay
+}));
 
 // --- COMPONENT ---
 export const AnimatedTestimonialGrid = ({
@@ -76,6 +59,49 @@ export const AnimatedTestimonialGrid = ({
   className,
 }: AnimatedTestimonialGridProps) => {
 
+  // Memoize the image elements to prevent re-creation on parent re-renders
+  const imageElements = useMemo(() => (
+    testimonials.slice(0, imagePositions.length).map((testimonial, index) => {
+      const params = floatingParams[index];
+      return (
+        <motion.div
+          key={index}
+          className={cn('absolute rounded-lg shadow-xl overflow-hidden will-change-transform', imagePositions[index].className)}
+          style={{
+            top: imagePositions[index].top,
+            left: imagePositions[index].left,
+            right: imagePositions[index].right,
+            bottom: imagePositions[index].bottom,
+          }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{
+            duration: 0.6,
+            delay: params.delay,
+            ease: 'easeOut',
+          }}
+        >
+          <motion.img
+            src={testimonial.imgSrc}
+            alt={testimonial.alt}
+            className="w-full h-full object-cover"
+            loading="lazy"
+            animate={{
+              y: [0, params.yOffset, 0],
+            }}
+            transition={{
+              duration: params.duration,
+              repeat: Infinity,
+              repeatType: 'reverse',
+              ease: 'easeInOut',
+            }}
+          />
+        </motion.div>
+      );
+    })
+  ), [testimonials]);
+
   return (
     <section
       className={cn(
@@ -84,30 +110,7 @@ export const AnimatedTestimonialGrid = ({
       )}
     >
       {/* Absolutely Positioned Images */}
-      {testimonials.slice(0, imagePositions.length).map((testimonial, index) => (
-        <motion.div
-          key={index}
-          className={cn('absolute rounded-lg shadow-xl overflow-hidden', imagePositions[index].className)}
-          style={{
-            top: imagePositions[index].top,
-            left: imagePositions[index].left,
-            right: imagePositions[index].right,
-            bottom: imagePositions[index].bottom,
-          }}
-          variants={imageVariants}
-          initial="initial"
-          animate="animate"
-          whileHover={{ scale: 1.1, zIndex: 20 }}
-          custom={index}
-        >
-          <motion.img
-            src={testimonial.imgSrc}
-            alt={testimonial.alt}
-            className="w-full h-full object-cover"
-            animate={floatingAnimation()}
-          />
-        </motion.div>
-      ))}
+      {imageElements}
 
       {/* Central Content */}
       <div className="relative z-10 flex flex-col items-center text-center mt-32">
@@ -143,10 +146,14 @@ export default function Testimonials() {
   ];
 
   // Create an array of 15 testimonials using the base images repeatedly
-  const testimonialsData = Array.from({ length: 15 }).map((_, i) => ({
-    imgSrc: baseImages[i % baseImages.length],
-    alt: `Testimonial jewelry piece ${i + 1}`,
-  }));
+  const testimonialsData = useMemo(() =>
+    Array.from({ length: 15 }).map((_, i) => ({
+      imgSrc: baseImages[i % baseImages.length],
+      alt: `Testimonial jewelry piece ${i + 1}`,
+    })),
+  // baseImages is stable (inline literal), so empty deps is safe
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  []);
 
   return (
     <div className="bg-black border-t border-white/5">

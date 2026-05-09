@@ -3,24 +3,24 @@ import Image from "next/image";
 const pieces = [
   {
     id: 1,
-    title: "AURORA DIAMOND RING",
-    image: "https://i.pinimg.com/736x/40/ba/42/40ba429be53236c5c600868594ea2c13.jpg",
+    title: "MIRACLE TAPER",
+    image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778291194/683864758_18095328457921277_3517292132804060953_n_vpxlee.jpg",
   },
   {
     id: 2,
-    title: "CELESTIA NECKLACE",
-    image: "https://i.pinimg.com/1200x/03/ac/d6/03acd6074474ddcfb748476096e4764f.jpg",
+    title: "MIRACLE BAGUETTE",
+    image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778291194/683294603_18095323675921277_1870812999067198597_n_cvesma.jpg",
   },
   {
     id: 3,
-    title: "ECLIPTIC EARRINGS",
-    image: "https://i.pinimg.com/736x/27/83/c4/2783c444174a6215fde1f011a5cd7f2d.jpg",
+    title: "MIRACLE SQUARE",
+    image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778291194/684499171_18095322943921277_2014456254279680972_n_zgqbrl.jpg",
   },
   {
     id: 4,
-    title: "NOCTURNE BRACELET",
-    // Reusing the first image as a placeholder for the 4th item since only 3 were provided
-    image: "https://i.pinimg.com/736x/40/ba/42/40ba429be53236c5c600868594ea2c13.jpg",
+    title: "ETERNAL WONDER",
+
+    image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778291194/675445925_18094756141921277_3130584809583555391_n_uj6baz.jpg",
   },
 ];
 
@@ -29,13 +29,13 @@ export default function SignaturePieces() {
     <section id="collections" className="w-full bg-black py-24 px-6 md:px-12">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         <h2 className="text-3xl md:text-5xl font-light text-white mb-16 tracking-wide drop-shadow-md">
-          Signature Pieces
+          Shop Now
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {pieces.map((piece) => (
-            <div 
-              key={piece.id} 
+            <div
+              key={piece.id}
               className="group relative bg-[#0a0a0a] rounded-xl overflow-hidden flex flex-col border border-white/5 hover:border-primary/50 transition-all duration-500"
             >
               {/* Image Container */}
@@ -55,10 +55,10 @@ export default function SignaturePieces() {
                 <h3 className="text-lg tracking-widest text-white/90 mb-6">
                   {piece.title}
                 </h3>
-                
+
                 {/* Buttons overlay/highlighted elements */}
-                <div className="flex gap-4 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <a 
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-all duration-500">
+                  <a
                     href="https://maisonhimala.etsy.com/"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -66,7 +66,7 @@ export default function SignaturePieces() {
                   >
                     View the Item
                   </a>
-                  <a 
+                  <a
                     href="https://maisonhimala.etsy.com/"
                     target="_blank"
                     rel="noopener noreferrer"

@@ -66,3 +66,30 @@ body {
     background-position: right center;
   }
 }
+
+/* Testimonials infinite scroll - GPU-accelerated CSS animation */
+@keyframes testimonials-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.testimonials-scroll {
+  animation: testimonials-scroll linear infinite;
+  will-change: transform;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-scroll {
+    animation: none;
+  }
+}
+
+/* Performance: promote heavy sections to their own compositing layer */
+canvas {
+  will-change: contents;
+}

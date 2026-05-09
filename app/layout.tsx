@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable} bg-black text-white antialiased`}>
       <body className="flex flex-col min-h-screen">
         <TopNavigation />
-        <div className="flex-grow pt-[98px]">
+        <div className="flex-grow pt-[72px] sm:pt-[98px]">
           {children}
         </div>
         <Footer />

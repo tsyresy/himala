@@ -10,7 +10,7 @@ export function Hero() {
   return (
     <>
       <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-black px-4 sm:px-6 py-12 sm:py-20 transition-colors duration-300">
-        
+
         <div className="absolute inset-0 pointer-events-none">
           <GodRays
             colorBack="#00000000"
@@ -38,17 +38,17 @@ export function Hero() {
         </div>
 
         <div className="relative z-10 flex flex-col items-center gap-6 sm:gap-8 text-center mt-20">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="inline-flex items-center rounded-full border border-[#BF953F]/20 bg-black/50 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm"
           >
             <span className="flex h-2 w-2 rounded-full bg-[#BF953F] mr-3 shadow-[0_0_10px_#BF953F]"></span>
-            New: The Himala Collection
+            Welcome to Maison Himala
           </motion.div>
 
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -60,7 +60,7 @@ export function Hero() {
             </span>
           </motion.h1>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}

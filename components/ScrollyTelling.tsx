@@ -1,29 +1,31 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { Loader2 } from "lucide-react";
 
 const FRAME_COUNT = 40;
 
-const preloadedImages: HTMLImageElement[] = [];
-
 export default function ScrollyTelling() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const rafIdRef = useRef<number>(0);
+  const lastFrameRef = useRef<number>(-1);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  // Preload images on mount
+  // Preload images on mount — stored in ref to avoid module-level leak
   useEffect(() => {
     let loadedCount = 0;
+    const images: HTMLImageElement[] = [];
+
     for (let i = 1; i <= FRAME_COUNT; i++) {
       const img = new Image();
-      // Format number to be 3 digits
       const frameNum = i.toString().padStart(3, "0");
       img.src = `/animated/ezgif-frame-${frameNum}.jpg`;
       img.onload = () => {
@@ -32,47 +34,59 @@ export default function ScrollyTelling() {
           setImagesLoaded(true);
         }
       };
-      preloadedImages.push(img);
+      images.push(img);
     }
+
+    imagesRef.current = images;
+
+    return () => {
+      // Cleanup: cancel any pending rAF and clear refs
+      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+      imagesRef.current = [];
+    };
+  }, []);
+
+  // Stable draw function
+  const drawFrame = useCallback((frameNum: number) => {
+    const canvas = canvasRef.current;
+    const images = imagesRef.current;
+    if (!canvas || !images.length) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const img = images[frameNum];
+    if (!img) return;
+
+    const hRatio = canvas.width / img.width;
+    const vRatio = canvas.height / img.height;
+    const ratio = Math.min(hRatio, vRatio);
+    const centerX = (canvas.width - img.width * ratio) / 2;
+    const centerY = (canvas.height - img.height * ratio) / 2;
+
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0, img.width, img.height, centerX, centerY, img.width * ratio, img.height * ratio);
   }, []);
 
   // Map scroll progress to frame index (0 to 39)
   const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
 
+  // Throttled scroll-driven rendering via requestAnimationFrame
   useMotionValueEvent(frameIndex, "change", (latest) => {
-    if (!imagesLoaded || !canvasRef.current) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
+    if (!imagesLoaded) return;
 
     const currentFrame = Math.round(latest);
-    const img = preloadedImages[currentFrame];
-    if (!img) return;
+    // Skip if same frame (avoids redundant draws)
+    if (currentFrame === lastFrameRef.current) return;
 
-    // Draw the image filling the canvas while maintaining aspect ratio (object-fit: contain behavior)
-    // Actually for a seamless blend with black bg, cover or contain is fine. Let's do contain.
-    const hRatio = canvas.width / img.width;
-    const vRatio = canvas.height / img.height;
-    const ratio = Math.min(hRatio, vRatio);
-    const centerShift_x = (canvas.width - img.width * ratio) / 2;
-    const centerShift_y = (canvas.height - img.height * ratio) / 2;
+    // Cancel any pending rAF to coalesce rapid scroll events
+    if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // Fill with black to ensure seamless background
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.drawImage(
-      img,
-      0,
-      0,
-      img.width,
-      img.height,
-      centerShift_x,
-      centerShift_y,
-      img.width * ratio,
-      img.height * ratio
-    );
+    rafIdRef.current = requestAnimationFrame(() => {
+      lastFrameRef.current = currentFrame;
+      drawFrame(currentFrame);
+    });
   });
 
   // Resize canvas to match window
@@ -81,34 +95,20 @@ export default function ScrollyTelling() {
       if (canvasRef.current) {
         canvasRef.current.width = window.innerWidth;
         canvasRef.current.height = window.innerHeight;
-        // Trigger a re-draw for the current frame
-        const currentFrame = Math.round(frameIndex.get());
-        if (imagesLoaded && preloadedImages[currentFrame]) {
-            const ctx = canvasRef.current.getContext("2d");
-            if (ctx) {
-                const img = preloadedImages[currentFrame];
-                const hRatio = canvasRef.current.width / img.width;
-                const vRatio = canvasRef.current.height / img.height;
-                const ratio = Math.min(hRatio, vRatio);
-                const centerShift_x = (canvasRef.current.width - img.width * ratio) / 2;
-                const centerShift_y = (canvasRef.current.height - img.height * ratio) / 2;
-                ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-                ctx.fillStyle = "#000000";
-                ctx.fillRect(0, 0, canvasRef.current.width, canvasRef.current.height);
-                ctx.drawImage(img, 0, 0, img.width, img.height, centerShift_x, centerShift_y, img.width * ratio, img.height * ratio);
-            }
+        // Re-draw current frame after resize
+        if (imagesLoaded && lastFrameRef.current >= 0) {
+          drawFrame(lastFrameRef.current);
+        } else if (imagesLoaded) {
+          drawFrame(Math.round(frameIndex.get()));
         }
       }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [imagesLoaded, frameIndex]);
+  }, [imagesLoaded, frameIndex, drawFrame]);
 
   // Text Animations based on scrollYProgress
-  const text1Opacity = useTransform(scrollYProgress, [0, 0.05, 0.1], [1, 1, 0]);
-  const text1Y = useTransform(scrollYProgress, [0, 0.1], [0, -50]);
-
   const text2Opacity = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.45], [0, 1, 1, 0]);
   const text2Y = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.45], [50, 0, 0, -50]);
 

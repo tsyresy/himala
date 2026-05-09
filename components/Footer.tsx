@@ -22,8 +22,8 @@ const LinkedinIcon = () => (
 
 export default function Footer() {
   return (
-    <div className="bg-black pt-20 px-4">
-      <footer className="bg-[#0a0a0a] w-full max-w-container mx-auto text-white pt-12 lg:pt-20 px-4 sm:px-8 md:px-16 lg:px-28 rounded-tl-[3rem] rounded-tr-[3rem] overflow-hidden border-t border-white/5 relative">
+    <div className="bg-black pt-12 sm:pt-20 px-2 sm:px-4">
+      <footer className="bg-[#0a0a0a] w-full max-w-container mx-auto text-white pt-10 sm:pt-12 lg:pt-20 px-4 sm:px-8 md:px-16 lg:px-28 rounded-tl-[1.5rem] sm:rounded-tl-[3rem] rounded-tr-[1.5rem] sm:rounded-tr-[3rem] overflow-hidden border-t border-white/5 relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-6 gap-12 md:gap-16 relative z-10">
 
           <div className="lg:col-span-3 space-y-8">
@@ -59,7 +59,6 @@ export default function Footer() {
               <ul className="space-y-4 text-sm text-white/50">
                 <li><Link href="/blog" className="hover:text-white transition-colors">The Blog</Link></li>
                 <li><Link href="/certification" className="hover:text-white transition-colors">Certification</Link></li>
-                <li><Link href="/vetting" className="hover:text-white transition-colors">Technical Vetting</Link></li>
               </ul>
             </div>
 
@@ -69,7 +68,6 @@ export default function Footer() {
               <ul className="space-y-4 text-sm text-white/50">
                 <li><Link href="/about" className="hover:text-white transition-colors">Our Story</Link></li>
                 <li><Link href="/standard" className="hover:text-white transition-colors">The Standard</Link></li>
-                <li><Link href="/craft" className="hover:text-white transition-colors">Craftsmanship</Link></li>
               </ul>
             </div>
 
@@ -81,16 +79,15 @@ export default function Footer() {
                 <li><Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li className="flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-[11px] font-bold tracking-tighter text-primary uppercase">Bespoke Orders Open</span>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10 pb-12">
-          <p className="text-white/30 text-xs tracking-widest uppercase">© 2026 MAISON HIMALA. ALL RIGHTS RESERVED.</p>
-          <p className='text-xs text-white/30 tracking-widest uppercase italic'>Curated Excellence, Technical Precision.</p>
+        <div className="max-w-7xl mx-auto mt-12 sm:mt-20 pt-6 sm:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 relative z-10 pb-8 sm:pb-12">
+          <p className="text-white/30 text-[10px] sm:text-xs tracking-widest uppercase text-center md:text-left">© 2026 MAISON HIMALA. ALL RIGHTS RESERVED.</p>
+          <p className="text-[10px] sm:text-xs text-white/30 tracking-widest uppercase italic text-center md:text-right">Curated Excellence, Technical Precision.</p>
         </div>
 
         {/* Decorative Background Elements */}
