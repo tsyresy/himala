@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 
 export const testimonials = [
   {
-    name: "Maria Gonzalez",
-    role: "🇺🇸 USA",
+    name: "Claude Dupont",
+    role: "🇨🇦 Canada",
     text: "The craftsmanship is unparalleled. Knowing this is a thoroughly vetted investment gives me complete confidence in my purchase. Truly exceptional service and quality.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
@@ -17,7 +17,7 @@ export const testimonials = [
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
-    name: "Sarah Jenkins",
+    name: "Sarah Jeanne",
     role: "🇫🇷 France",
     text: "Exquisite attention to detail and rigorous standards. The investment value is clear, and the physical certificate of authenticity is a testament to their professionalism.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",

@@ -41,7 +41,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="text-white font-medium mb-1">Email Us</h4>
-                    <p className="text-white/50 text-sm font-light">contact@maisonhimala.com</p>
+                    <p className="text-white/50 text-sm font-light">maisonhimala@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -49,31 +49,31 @@ export default function ContactPage() {
 
             {/* Simple Contact Form */}
             <div className="glass-panel p-10 border-white/5 relative overflow-hidden">
-               <div className="absolute inset-0 bg-gold-gradient opacity-5" />
-               <form className="space-y-6 relative z-10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Name</label>
-                      <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="Your Name" />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Email</label>
-                      <input type="email" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="your@email.com" />
-                    </div>
+              <div className="absolute inset-0 bg-gold-gradient opacity-5" />
+              <form className="space-y-6 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Name</label>
+                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="Your Name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Subject</label>
-                    <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="Bespoke Inquiry" />
+                    <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Email</label>
+                    <input type="email" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="your@email.com" />
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Message</label>
-                    <textarea rows={5} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light resize-none" placeholder="How can we help you?" />
-                  </div>
-                  <button className="w-full bg-gold-gradient text-black py-4 rounded-lg font-bold uppercase tracking-widest hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
-                    Send Message
-                    <Send className="w-4 h-4" />
-                  </button>
-               </form>
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Subject</label>
+                  <input type="text" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light" placeholder="Bespoke Inquiry" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs uppercase tracking-widest text-white/40 font-semibold">Message</label>
+                  <textarea rows={5} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary transition-colors font-light resize-none" placeholder="How can we help you?" />
+                </div>
+                <button className="w-full bg-gold-gradient text-black py-4 rounded-lg font-bold uppercase tracking-widest hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                  Send Message
+                  <Send className="w-4 h-4" />
+                </button>
+              </form>
             </div>
           </div>
         </div>

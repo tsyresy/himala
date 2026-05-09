@@ -1,112 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { Loader2 } from "lucide-react";
-
-const FRAME_COUNT = 40;
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export default function ScrollyTelling() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const rafIdRef = useRef<number>(0);
-  const lastFrameRef = useRef<number>(-1);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  // Preload images on mount — stored in ref to avoid module-level leak
-  useEffect(() => {
-    let loadedCount = 0;
-    const images: HTMLImageElement[] = [];
-
-    for (let i = 1; i <= FRAME_COUNT; i++) {
-      const img = new Image();
-      const frameNum = i.toString().padStart(3, "0");
-      img.src = `/animated/ezgif-frame-${frameNum}.jpg`;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === FRAME_COUNT) {
-          setImagesLoaded(true);
-        }
-      };
-      images.push(img);
-    }
-
-    imagesRef.current = images;
-
-    return () => {
-      // Cleanup: cancel any pending rAF and clear refs
-      if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-      imagesRef.current = [];
-    };
-  }, []);
-
-  // Stable draw function
-  const drawFrame = useCallback((frameNum: number) => {
-    const canvas = canvasRef.current;
-    const images = imagesRef.current;
-    if (!canvas || !images.length) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const img = images[frameNum];
-    if (!img) return;
-
-    const hRatio = canvas.width / img.width;
-    const vRatio = canvas.height / img.height;
-    const ratio = Math.min(hRatio, vRatio);
-    const centerX = (canvas.width - img.width * ratio) / 2;
-    const centerY = (canvas.height - img.height * ratio) / 2;
-
-    ctx.fillStyle = "#000000";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(img, 0, 0, img.width, img.height, centerX, centerY, img.width * ratio, img.height * ratio);
-  }, []);
-
-  // Map scroll progress to frame index (0 to 39)
-  const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
-
-  // Throttled scroll-driven rendering via requestAnimationFrame
-  useMotionValueEvent(frameIndex, "change", (latest) => {
-    if (!imagesLoaded) return;
-
-    const currentFrame = Math.round(latest);
-    // Skip if same frame (avoids redundant draws)
-    if (currentFrame === lastFrameRef.current) return;
-
-    // Cancel any pending rAF to coalesce rapid scroll events
-    if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
-
-    rafIdRef.current = requestAnimationFrame(() => {
-      lastFrameRef.current = currentFrame;
-      drawFrame(currentFrame);
-    });
-  });
-
-  // Resize canvas to match window
-  useEffect(() => {
-    const handleResize = () => {
-      if (canvasRef.current) {
-        canvasRef.current.width = window.innerWidth;
-        canvasRef.current.height = window.innerHeight;
-        // Re-draw current frame after resize
-        if (imagesLoaded && lastFrameRef.current >= 0) {
-          drawFrame(lastFrameRef.current);
-        } else if (imagesLoaded) {
-          drawFrame(Math.round(frameIndex.get()));
-        }
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [imagesLoaded, frameIndex, drawFrame]);
 
   // Text Animations based on scrollYProgress
   const text2Opacity = useTransform(scrollYProgress, [0.15, 0.25, 0.35, 0.45], [0, 1, 1, 0]);
@@ -120,16 +23,24 @@ export default function ScrollyTelling() {
 
   return (
     <div ref={containerRef} className="h-[400vh] w-full bg-black relative">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
         
-        {!imagesLoaded && (
-          <div className="absolute inset-0 z-50 flex flex-col items-center justify-center bg-black text-white/60">
-            <Loader2 className="w-8 h-8 animate-spin mb-4 text-white" />
-            <p className="text-sm uppercase tracking-[0.2em]">Preparing the Miracle</p>
-          </div>
-        )}
-
-        <canvas ref={canvasRef} className="w-full h-full object-cover" />
+        {/* Animated Golden Gradient Background */}
+        <motion.div 
+          className="absolute inset-0 opacity-40"
+          animate={{
+            backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+          }}
+          transition={{
+            duration: 15,
+            ease: "linear",
+            repeat: Infinity,
+          }}
+          style={{
+            backgroundImage: "radial-gradient(circle at center, rgba(212,175,55,0.4) 0%, rgba(0,0,0,1) 70%)",
+            backgroundSize: "200% 200%",
+          }}
+        />
 
         {/* Text Section 2: 30% - Left Aligned */}
         <motion.div
