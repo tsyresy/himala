@@ -69,19 +69,7 @@ export function Hero() {
             Maison Himala, the world&apos;s premier curator of fine jewelry, presents a living legacy. Our rigorous technical vetting ensures every piece is absolutely worthy of being a luxury asset.
           </motion.p>
 
-          <div className="inline-block relative mt-8">
-            <div
-              style={{ borderRadius: "100px" }}
-              className="absolute inset-0 bg-gold-gradient"
-            />
-            <Link
-              href="/booking"
-              className="relative flex items-center gap-3 h-14 px-10 py-3 text-lg font-bold text-black tracking-wide hover:opacity-90 transition-opacity"
-            >
-              Secure Your Legacy
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
+
         </div>
       </div>
     </>

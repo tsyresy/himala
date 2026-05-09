@@ -41,45 +41,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Certification Standard */}
+      {/* Founder Section */}
       <section className="py-24 bg-white/5 border-y border-white/5">
-        <div className="container mx-auto px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-luxury text-gold-gradient mb-4">The Maison Himala Standard</h2>
-            <p className="text-white/40 uppercase tracking-widest text-sm">Every piece is a curated luxury asset.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: "I. Diamonds",
-                desc: "Every diamond is accompanied by IGI or GIA certification. I secondary-test every stone to ensure the physical stone matches its data report perfectly."
-              },
-              {
-                title: "II. Moissanite",
-                desc: "I personally verify the Refractive Index and Thermal Conductivity of every stone to ensure it meets our VVS1+ brilliance standard."
-              },
-              {
-                title: "III. Gemstones",
-                desc: "Precious Gems (Rubies, Sapphires, Emeralds) and fine colored stones are hand-selected for saturation and clarity. Every stone is tested for authenticity."
-              },
-              {
-                title: "IV. Precious Metals",
-                desc: "We inspect hallmarks and chemical composition of Solid Gold (10K-22K) and Silver. We perform a full integrity audit on every setting."
-              }
-            ].map((item, i) => (
-              <div key={i} className="glass-panel p-8 space-y-6 hover:border-primary/50 transition-colors">
-                <h3 className="text-xl font-luxury text-primary">{item.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed font-light">{item.desc}</p>
+        <div className="container mx-auto px-8 max-w-5xl">
+          <div className="flex flex-col md:flex-row items-center gap-16">
+            <div className="w-full md:w-1/2">
+              <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <Image
+                  src="/animated/maxime.png"
+                  alt="Maxime Boulanger, CEO & Founder"
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
-          </div>
-
-          <div className="mt-20 glass-panel p-12 max-w-4xl mx-auto text-center border-primary/30">
-            <h3 className="text-2xl font-luxury text-primary mb-6">The Final Step: The Maison Himala COA</h3>
-            <p className="text-white/70 leading-relaxed max-w-2xl mx-auto font-light">
-              Only after a piece clears all of the above categories do I issue the Maison Himala In-House Certificate of Authenticity. This serialized card is my personal signature—a guarantee that every gemstone and every gram of metal has been vetted, verified, and approved by the founder.
-            </p>
+            </div>
+            <div className="w-full md:w-1/2 space-y-6">
+              <h2 className="text-4xl font-luxury text-gold-gradient">Maxime Boulanger</h2>
+              <p className="text-primary uppercase tracking-widest text-sm font-bold">CEO & Founder, Maison Himala</p>
+              <div className="space-y-4 text-white/70 font-light leading-relaxed">
+                <p>
+                  As an entrepreneur with a deep-rooted passion for fine craftsmanship, I built Maison Himala to redefine how luxury jewelry is curated and presented to the world.
+                </p>
+                <p>
+                  My vision was never simply to offer jewelry, but to provide thoroughly vetted, premium wearable assets. I personally oversee our strict quality control and technical verification processes, ensuring that every piece that carries the Maison Himala name meets an uncompromising standard of excellence.
+                </p>
+                <p>
+                  For me, transparency and authenticity are the true hallmarks of luxury, and this commitment is at the core of everything we do.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

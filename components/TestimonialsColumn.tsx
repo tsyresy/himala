@@ -6,26 +6,26 @@ import { cn } from "@/lib/utils";
 export const testimonials = [
   {
     name: "Maria Gonzalez",
-    role: "Finance Director",
-    text: "Honestly, my husband finally got something right. The necklace is stunning, and knowing it's an actual vetted investment makes the price tag hurt way less. Love it!",
+    role: "🇺🇸 USA",
+    text: "The craftsmanship is unparalleled. Knowing this is a thoroughly vetted investment gives me complete confidence in my purchase. Truly exceptional service and quality.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
-    name: "John 'JD' Martinez",
-    role: "Real Estate Developer",
-    text: "Paid a premium but wow, the wife is still speechless. The technical vetting sold me, but seeing it in person? Absolute fire. Best anniversary gift ever, hands down.",
+    name: "John Martinez",
+    role: "🇲🇽 Mexique",
+    text: "A seamless and highly professional experience from start to finish. The technical verification provides absolute peace of mind, and the piece itself is outstanding.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
     name: "Sarah Jenkins",
-    role: "Tech Executive",
-    text: "I bought this for myself because why wait for a man? The refractive index on this piece is insane. I literally blind people in board meetings now. 10/10 recommend.",
+    role: "🇫🇷 France",
+    text: "Exquisite attention to detail and rigorous standards. The investment value is clear, and the physical certificate of authenticity is a testament to their professionalism.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
   {
     name: "Mateo Rivera",
-    role: "Architect",
-    text: "My wallet cried a little, but the moment she put the ring on, I knew I won. The craftsmanship is stupidly good. Maison Himala just doesn't miss.",
+    role: "🇺🇸 USA",
+    text: "Maison Himala delivers on every promise. The curation process ensures that each piece is a genuine luxury asset. I am deeply satisfied with my acquisition.",
     image: "https://res.cloudinary.com/djillj6xt/image/upload/v1778295707/user_ajcb01.png",
   },
 ];

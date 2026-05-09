@@ -129,7 +129,7 @@ export default function CertificationPage() {
               <h4 className="font-bold uppercase tracking-widest text-xs">Security Features</h4>
             </div>
             <p className="text-sm text-white/40 font-light leading-relaxed">
-              Maison Himala pieces use microscopic laser engravings and encrypted NFC chips to ensure physical-to-digital parity.
+              Each Maison Himala piece is accompanied by a professional physical card of authenticity, prominently featuring the unique serial number of your investment.
             </p>
           </div>
           <div className="glass-panel p-8 rounded-[2rem] border border-white/5 space-y-4">
