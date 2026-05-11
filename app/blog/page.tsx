@@ -38,7 +38,7 @@ const articles: Article[] = [
     readingTime: "12 min read",
     author: {
       name: "Maison Himala",
-      avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=founder",
+      avatarUrl: "https://res.cloudinary.com/djillj6xt/image/upload/v1778532270/maxime_Copy_1_h1hgiy.png",
     },
   },
   {
@@ -58,7 +58,7 @@ const articles: Article[] = [
     readingTime: "10 min read",
     author: {
       name: "Maison Himala",
-      avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=founder",
+      avatarUrl: "https://res.cloudinary.com/djillj6xt/image/upload/v1778532270/maxime_Copy_1_h1hgiy.png",
     },
   },
   {
@@ -78,7 +78,7 @@ const articles: Article[] = [
     readingTime: "15 min read",
     author: {
       name: "Maison Himala",
-      avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=founder",
+      avatarUrl: "https://res.cloudinary.com/djillj6xt/image/upload/v1778532270/maxime_Copy_1_h1hgiy.png",
     },
   },
   {
@@ -98,7 +98,7 @@ const articles: Article[] = [
     readingTime: "8 min read",
     author: {
       name: "Maison Himala",
-      avatarUrl: "https://api.dicebear.com/7.x/avataaars/svg?seed=founder",
+      avatarUrl: "https://res.cloudinary.com/djillj6xt/image/upload/v1778532270/maxime_Copy_1_h1hgiy.png",
     },
   }
 ];
@@ -109,8 +109,8 @@ export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
 
-  const filteredArticles = activeCategory === "All" 
-    ? articles 
+  const filteredArticles = activeCategory === "All"
+    ? articles
     : articles.filter(a => a.category === activeCategory);
 
   const featuredArticle = articles[0];
@@ -129,19 +129,19 @@ export default function BlogPage() {
         {/* Featured Article */}
         <div className="relative group mb-32 cursor-pointer" onClick={() => setSelectedArticle(featuredArticle)}>
           <div className="relative aspect-[21/9] rounded-3xl overflow-hidden glass-panel border-white/5">
-            <img 
-              src={featuredArticle.thumbnailUrl} 
+            <img
+              src={featuredArticle.thumbnailUrl}
               alt={featuredArticle.title}
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
-            
+
             <div className="absolute bottom-0 left-0 right-0 p-12 space-y-6">
               <div className="flex gap-4 items-center">
-                 <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                   Featured Article
-                 </span>
-                 <span className="text-white/40 text-sm">{featuredArticle.publishedAt}</span>
+                <span className="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                  Featured Article
+                </span>
+                <span className="text-white/40 text-sm">{featuredArticle.publishedAt}</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-luxury text-white max-w-3xl leading-tight">
                 {featuredArticle.title}
@@ -150,12 +150,12 @@ export default function BlogPage() {
                 {featuredArticle.summary}
               </p>
               <div className="flex items-center gap-6 pt-4">
-                 <div className="flex items-center gap-3">
-                    <img src={featuredArticle.author.avatarUrl} alt={featuredArticle.author.name} className="w-10 h-10 rounded-full border border-primary/20" />
-                    <span className="text-white font-medium">{featuredArticle.author.name}</span>
-                 </div>
-                 <div className="h-4 w-[1px] bg-white/20" />
-                 <span className="text-white/40 text-sm uppercase tracking-widest">{featuredArticle.readingTime}</span>
+                <div className="flex items-center gap-3">
+                  <img src={featuredArticle.author.avatarUrl} alt={featuredArticle.author.name} className="w-10 h-10 rounded-full border border-primary/20" />
+                  <span className="text-white font-medium">{featuredArticle.author.name}</span>
+                </div>
+                <div className="h-4 w-[1px] bg-white/20" />
+                <span className="text-white/40 text-sm uppercase tracking-widest">{featuredArticle.readingTime}</span>
               </div>
             </div>
           </div>
@@ -163,56 +163,56 @@ export default function BlogPage() {
 
         {/* Filters and Search */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-16 border-b border-white/5 pb-8">
-           <div className="flex gap-8 overflow-x-auto w-full md:w-auto pb-4 md:pb-0 scrollbar-hide">
-              {categories.map(cat => (
-                <button 
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`text-sm uppercase tracking-widest font-bold whitespace-nowrap transition-colors ${activeCategory === cat ? 'text-primary' : 'text-white/30 hover:text-white'}`}
-                >
-                  {cat}
-                </button>
-              ))}
-           </div>
-           <div className="relative w-full md:w-80">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
-              <input 
-                type="text" 
-                placeholder="Search articles..." 
-                className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-sm text-white focus:outline-none focus:border-primary transition-all font-light"
-              />
-           </div>
+          <div className="flex gap-8 overflow-x-auto w-full md:w-auto pb-4 md:pb-0 scrollbar-hide">
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`text-sm uppercase tracking-widest font-bold whitespace-nowrap transition-colors ${activeCategory === cat ? 'text-primary' : 'text-white/30 hover:text-white'}`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+          <div className="relative w-full md:w-80">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+            <input
+              type="text"
+              placeholder="Search articles..."
+              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-sm text-white focus:outline-none focus:border-primary transition-all font-light"
+            />
+          </div>
         </div>
 
         {/* Article Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-24">
-           {filteredArticles.map(article => (
-             <article key={article.id} className="group cursor-pointer" onClick={() => setSelectedArticle(article)}>
-                <div className="aspect-[16/10] rounded-2xl overflow-hidden glass-panel border-white/5 mb-6 relative">
-                   <img 
-                    src={article.thumbnailUrl} 
-                    alt={article.title}
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80"
-                   />
-                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+          {filteredArticles.map(article => (
+            <article key={article.id} className="group cursor-pointer" onClick={() => setSelectedArticle(article)}>
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden glass-panel border-white/5 mb-6 relative">
+                <img
+                  src={article.thumbnailUrl}
+                  alt={article.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-primary text-xs font-bold uppercase tracking-widest">{article.category}</span>
+                  <span className="text-white/30 text-xs">{article.publishedAt}</span>
                 </div>
-                <div className="space-y-4">
-                   <div className="flex justify-between items-center">
-                      <span className="text-primary text-xs font-bold uppercase tracking-widest">{article.category}</span>
-                      <span className="text-white/30 text-xs">{article.publishedAt}</span>
-                   </div>
-                   <h3 className="text-2xl font-luxury text-white group-hover:text-primary transition-colors leading-tight">
-                      {article.title}
-                   </h3>
-                   <p className="text-white/50 text-sm font-light leading-relaxed line-clamp-3">
-                      {article.summary}
-                   </p>
-                   <div className="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest pt-2 group-hover:gap-4 transition-all">
-                      Read Article <ArrowUpRight className="w-4 h-4" />
-                   </div>
+                <h3 className="text-2xl font-luxury text-white group-hover:text-primary transition-colors leading-tight">
+                  {article.title}
+                </h3>
+                <p className="text-white/50 text-sm font-light leading-relaxed line-clamp-3">
+                  {article.summary}
+                </p>
+                <div className="flex items-center gap-2 text-primary text-xs font-bold uppercase tracking-widest pt-2 group-hover:gap-4 transition-all">
+                  Read Article <ArrowUpRight className="w-4 h-4" />
                 </div>
-             </article>
-           ))}
+              </div>
+            </article>
+          ))}
         </div>
 
       </section>
@@ -220,14 +220,14 @@ export default function BlogPage() {
       {/* Article Modal */}
       <AnimatePresence>
         {selectedArticle && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md overflow-y-auto"
             onClick={() => setSelectedArticle(null)}
           >
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -235,17 +235,17 @@ export default function BlogPage() {
               className="relative w-full max-w-4xl bg-[#0a0a0a] border border-white/10 rounded-3xl overflow-hidden my-auto shadow-2xl"
               onClick={e => e.stopPropagation()}
             >
-              <button 
+              <button
                 onClick={() => setSelectedArticle(null)}
                 className="absolute top-6 right-6 z-10 p-2 bg-black/50 hover:bg-black text-white rounded-full transition-colors border border-white/10 backdrop-blur-sm"
               >
                 <X className="w-5 h-5" />
               </button>
-              
+
               <div className="w-full h-[40vh] relative">
-                <img 
-                  src={selectedArticle.thumbnailUrl} 
-                  alt={selectedArticle.title} 
+                <img
+                  src={selectedArticle.thumbnailUrl}
+                  alt={selectedArticle.title}
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent" />
@@ -259,7 +259,7 @@ export default function BlogPage() {
                     <span className="w-1 h-1 bg-white/20 rounded-full" /> {selectedArticle.readingTime}
                   </span>
                 </div>
-                
+
                 <h2 className="text-3xl md:text-5xl font-luxury text-white mb-8 leading-tight">
                   {selectedArticle.title}
                 </h2>
